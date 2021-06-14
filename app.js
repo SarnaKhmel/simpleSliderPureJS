@@ -1,14 +1,25 @@
-const slides = document.querySelectorAll('.slide')
+function slidesPlagin(activeSlide = 0 )
 
-for (const slide of slides){
-    slide.addEventListener('click', () => {
-        clearActiveClasses()
-        slide.classList.add('active'); 
-    })
+{
+    const slides = document.querySelectorAll('.slide')
+    slides[activeSlide].classList.add('active')
+    for (const slide of slides){
+        slide.addEventListener('click', () => {
+            clearActiveClasses()
+            slide.classList.add('active'); 
+        })
+    }
+
+    function clearActiveClasses(){
+        slides.forEach(slide => slide.classList.remove('active'));
+    }
+    
 }
+slidesPlagin();
 
-function clearActiveClasses(){
-    slides.forEach(slide => slide.classList.remove('active'))
-}
+// function randomer(){
+//     slidesPlagin(Math.floor((Math.random()*5)));
+//     setTimeout(timess, 100);
+// }
 
-
+// randomer();
